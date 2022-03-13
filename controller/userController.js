@@ -1,7 +1,17 @@
 import asyncHandler from 'express-async-handler'
+import User from '../models/userModel.js'
 
-const users = asyncHandler(async (req, res) => {
-  res.json({ user: 'user' })
+const createdUser = asyncHandler(async (req, res) => {
+    const {email, displayName} = req.body
+    const user = new User({
+      name: displayName,
+      email: email,
+
+    })
+
+    const savedUser = await user.save()
+    res.status(201).json(savedUser)
+    console.log(savedUser)
 })
 
-export { users }
+export { createdUser }

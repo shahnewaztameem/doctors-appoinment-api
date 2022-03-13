@@ -1,5 +1,5 @@
 import asyncHandler from 'express-async-handler'
-import Appoinment from '../models/appoinmentModel.js';
+import Appoinment from '../models/appoinmentModel.js'
 
 // @method:    POST
 // @desc:      Add an appoinment
@@ -13,13 +13,11 @@ const createAppoinment = asyncHandler(async (req, res) => {
     phone,
     serviceName,
     time,
-    date
+    date,
   })
 
   const createdAppoinment = await appoinment.save()
   res.status(201).json(createdAppoinment)
-
-  
 })
 
 // @method:    GET
@@ -27,9 +25,10 @@ const createAppoinment = asyncHandler(async (req, res) => {
 //@route       /api/appoinments
 const getAppoinmentsByEmail = asyncHandler(async (req, res) => {
   const email = req.query.email
-  const appointments = await Appoinment.find({email:email})
+  // const date = new Date(req.query.date).toLocaleDateString()
+  // console.log(date)
+  const appointments = await Appoinment.find({ email: email })
   res.json(appointments)
-  
 })
 
 export { createAppoinment, getAppoinmentsByEmail }
