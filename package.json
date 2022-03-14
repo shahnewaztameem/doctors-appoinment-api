@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon --experimental-json-modules index.js"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +15,7 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "express-async-handler": "^1.2.0",
+    "firebase-admin": "^10.0.2",
     "mongoose": "^6.2.4"
   },
   "devDependencies": {

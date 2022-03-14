@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const userSchema = mongoose.Schema(
   {
-    name: {
+    displayName: {
       type: String,
       required: true,
     },
@@ -10,9 +10,6 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
       unique: true,
-    },
-    password: {
-      type: String,
     },
     isAdmin: {
       type: Boolean,
